@@ -1,42 +1,41 @@
 import React, { useState, useEffect } from 'react'
 
-const life_cycle = () => {
+const Life_cycle = () => {
     
-    const [fecha, set_fecha] = useState(data)
-
     const data = {
         fecha: new Date(),
         edad: 0,
         nombre: 'Ayrton',
         apellidos: 'Rada Espinoza'
     }
-    
-    function tick(){
-        set_fecha( fecha.edad + 1)
-    }
+
+   const [fecha, set_fecha] = useState(data)
+
+    useEffect(() => {
 
     const timerID = setInterval(() => {
-       tick()
-    }, 1000);
+            //** tick() es un actualizador de contenido 
+           actualice_user()
+        }, 1000);
 
-    useEffect(() => {
         return () => {
-              timerID
-        };
-    }, [])
-    
-    const clear = clearInterval(timerID)
-
-    useEffect(() => {
-        return () => {
-            clear
+          clearInterval(timerID)
         };
     })
+
+    const actualice_user = () => {
+        return set_fecha({
+            fecha: fecha.fecha,
+            edad: fecha.edad + 1,
+            nombre: fecha.nombre,
+            apellidos: fecha.apellidos
+        })
+    }
   
     return (
     <div>
       <h2>
-          Hora Actual: { fecha.toLocaleTimeString() }
+          Hora Actual: { fecha.fecha.toLocaleTimeString()}
       </h2>
       <h3>
           { fecha.nombre } { fecha.apellidos }
@@ -48,4 +47,4 @@ const life_cycle = () => {
   )
 }
 
-export default life_cycle
+export default Life_cycle

@@ -5,6 +5,7 @@ import GreetingF from './components/pure/greetingF';
 import TaskListComponent from './components/container/task_list';
 import Contact_list from './components/container/contact_list';
 import Greeting_styled from './components/pure/greetingStyled';
+import Life_cycle from './hooks/life_cycle';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         {/* <GreetingF name="juan"/> */}
         {/* <TaskListComponent /> */}
         {/* <Contact_list /> */}
-        <Greeting_styled name="Ayrton" />
+        {/* <Greeting_styled name="Ayrton" /> */}
+        <Life_cycle/>
       </header>
     </div>
   );
