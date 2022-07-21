@@ -5,10 +5,12 @@ import TaskComponent from '../pure/task'
 
 const Task_listComponent = () => {
 
-  const default_task = new Task('Ayrton', 'default description', false, LEVELS.URGENT)
+  const default_task1 = new Task('Ayrton', 'description1', true, LEVELS.NORMAL)
+  const default_task2 = new Task('Ayrton', 'description2', false, LEVELS.URGENT)
+  const default_task3 = new Task('Ayrton', 'description3', false, LEVELS.BLOCKING)
   
   //** estado del componente
-  const [tasks, set_tasks] = useState(default_task)
+  const [tasks, set_tasks] = useState([default_task1, default_task2, default_task3])
   const [loading, set_loading] = useState(true)
 
   //** control del ciclo de vida del componente
@@ -26,9 +28,43 @@ const Task_listComponent = () => {
 
   }
   return (
-    <div>
-      <h1>The task number 1: </h1>
-      <TaskComponent task={default_task}/>
+    <div className='col-12'>
+      <div className='card'>
+        {/* Card Header (title) */}
+        <div className='card-header p-3'>
+          <h5>
+            Your Tasks: 
+          </h5>
+        </div>
+        {/*  Card Body (content) */}
+        <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', height: '400px'}}>
+          <table>
+            <thead>
+            {/* tr significa fila en ingles, ponemos todo el contenido en fila*/}
+              <tr> 
+                {/* th significa encabezado en ingles, es el encabezado de las columnas */}
+                {/* td es como se realiza las celdas, las columnas uno al lado del otro */}
+                <th scrope= 'col'>Title</th>
+                <th scrope= 'col'>Description</th>
+                <th scrope= 'col'>Priority</th>
+                <th scrope= 'col'>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            { tasks.map( (task2, index) => {
+              return (
+                <TaskComponent key={index} task={task2}/>
+              )
+
+            })}
+                
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      {/* <h1>The task number 1: </h1> */}
+      {/* <TaskComponent task={default_task}/> */}
     </div>
   )
 }

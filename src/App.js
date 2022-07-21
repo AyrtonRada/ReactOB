@@ -10,15 +10,15 @@ import Life_cycle from './hooks/life_cycle';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header"> */}
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Greeting name="Alberto"/> */}
         {/* <GreetingF name="juan"/> */}
-        {/* <TaskListComponent /> */}
+        <TaskListComponent />
         {/* <Contact_list /> */}
         {/* <Greeting_styled name="Ayrton" /> */}
-        <Life_cycle/>
-      </header>
+        {/* <Life_cycle/> */}
+      {/* </header> */}
     </div>
   );
 }

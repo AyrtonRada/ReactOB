@@ -3,7 +3,7 @@ import {LEVELS} from './levels.enum'
 export class Task {
     name= '';
     description = '';
-    complete = false;
+    complete = true;
     level = LEVELS.NORMAL;
 
     constructor(name, description, complete, level){
