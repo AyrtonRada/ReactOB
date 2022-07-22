@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { LEVELS } from '../../models/levels.enum'
 import { Task } from '../../models/task.class'
+import Task_form from '../pure/forms/taskForm'
 import TaskComponent from '../pure/task'
 
 const Task_listComponent = () => {
@@ -24,9 +25,30 @@ const Task_listComponent = () => {
   }, [tasks])
 
 
-  const change_completed = (id) => {
-
+  function complete_task(task){
+    console.log('Complete this Task:', task)
+    const index = tasks.indexOf(task)
+    const temp_tasks = [...tasks]
+    temp_tasks[index].complete = !temp_tasks[index].complete
+    // We update the state of the component with the new list of tasks and it will update the
+    // Iteration of the tasks in order to show the task updated.
+    set_tasks(temp_tasks)
   }
+
+  function delete_task(task) {
+    const index = tasks.indexOf(task)
+    const temp_tasks = [...tasks]
+    temp_tasks.splice(index, 1) //**desde donde partimos (index), cuantos queremos borrar (1) 
+    set_tasks(temp_tasks) 
+  }
+
+  function add_task(task){
+    const index = tasks.indexOf(task)
+    const temp_tasks = [...tasks]
+    temp_tasks.push(task)
+    set_tasks(temp_tasks)
+  }
+
   return (
     <div className='col-12'>
       <div className='card'>
@@ -53,7 +75,7 @@ const Task_listComponent = () => {
             <tbody>
             { tasks.map( (task2, index) => {
               return (
-                <TaskComponent key={index} task={task2}/>
+                <TaskComponent key={index} task={task2} complete={complete_task} remove={delete_task}/>
               )
 
             })}
@@ -63,6 +85,7 @@ const Task_listComponent = () => {
 
         </div>
       </div>
+      <Task_form add={add_task}/>
       {/* <h1>The task number 1: </h1> */}
       {/* <TaskComponent task={default_task}/> */}
     </div>

@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './style/task.scss'
 import Greeting from './components/pure/greeting';
 import GreetingF from './components/pure/greetingF';
 import TaskListComponent from './components/container/task_list';
