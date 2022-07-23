@@ -15,8 +15,8 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Greeting name="Alberto"/> */}
         {/* <GreetingF name="juan"/> */}
-        <TaskListComponent />
-        {/* <Contact_list /> */}
+        {/* <TaskListComponent /> */}
+        <Contact_list />
         {/* <Greeting_styled name="Ayrton" /> */}
         {/* <Life_cycle/> */}
       {/* </header> */}

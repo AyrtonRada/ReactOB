@@ -24,9 +24,9 @@ const Task_listComponent = () => {
     };
   }, [tasks])
 
-
+  //**cambiar el valor de la tarea, true= si fue completada - false= si NO fue completada
   function complete_task(task){
-    console.log('Complete this Task:', task)
+    
     const index = tasks.indexOf(task)
     const temp_tasks = [...tasks]
     temp_tasks[index].complete = !temp_tasks[index].complete
@@ -35,6 +35,7 @@ const Task_listComponent = () => {
     set_tasks(temp_tasks)
   }
 
+  //**Eliminacion de la tarea
   function delete_task(task) {
     const index = tasks.indexOf(task)
     const temp_tasks = [...tasks]
@@ -42,8 +43,8 @@ const Task_listComponent = () => {
     set_tasks(temp_tasks) 
   }
 
+  //**Creacion de la tarea
   function add_task(task){
-    const index = tasks.indexOf(task)
     const temp_tasks = [...tasks]
     temp_tasks.push(task)
     set_tasks(temp_tasks)
@@ -75,7 +76,11 @@ const Task_listComponent = () => {
             <tbody>
             { tasks.map( (task2, index) => {
               return (
-                <TaskComponent key={index} task={task2} complete={complete_task} remove={delete_task}/>
+                <TaskComponent 
+                key={index}
+                task={task2} 
+                complete={complete_task} 
+                remove={delete_task}/>
               )
 
             })}

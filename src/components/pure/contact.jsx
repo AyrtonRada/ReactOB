@@ -2,21 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from '../../models/contact';
 
-const Contact_component = ({ contact_list }) =>{
+const Contact_component = ({ contact, complete, remove }) =>{
+
+
+    function change_status_connect(){ 
+        if(contact.connect_status){
+            return( <button onClick={ () => complete(contact)}>'Contacto En Línea'</button>)
+        } else {
+            return( <button onClick={ () => complete(contact)}>'Contacto Fuera de Línea'</button>)
+        }
+    }
+
     return(
         
             <div>
                 <h2>
-                    NAME: {contact_list.name}
+                    NAME: {contact.name}
                 </h2>
                 <h2>
-                    LAST NAME: {contact_list.last_name}
+                    LAST NAME: {contact.last_name}
                 </h2>
                 <h2>
-                    EMAIL: {contact_list.email}
+                    EMAIL: {contact.email}
                 </h2>
                 <h2>
-                    STATUS CONNECT: {contact_list.connect_status}
+                    STATUS CONNECT: {change_status_connect()}
+                    <button onClick={ () => remove(contact)} className='btn btn-success btn-lg ms-2'>Remove</button>
                 </h2>
             </div>
 
