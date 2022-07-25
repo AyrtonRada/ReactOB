@@ -16,12 +16,12 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Greeting name="Alberto"/> */}
         {/* <GreetingF name="juan"/> */}
-        {/* <TaskListComponent /> */}
+        <TaskListComponent />
         {/* <Contact_list /> */}
         {/* <Greeting_styled name="Ayrton" /> */}
         {/* <Life_cycle/> */}
         {/* </header> */}
-        <Element_component/>
+        {/* <Element_component/> */}
     </div>
   );
 }

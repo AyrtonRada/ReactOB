@@ -17,7 +17,9 @@ const Task_listComponent = () => {
   //** control del ciclo de vida del componente
   useEffect(() => {
     console.log('Task State has been modified')
-    set_loading(false)
+    setTimeout(() => {
+      set_loading(false)
+    }, 2500);
     
     return () => {
       console.log('Task List component is going to unmount...')
@@ -50,6 +52,52 @@ const Task_listComponent = () => {
     set_tasks(temp_tasks)
   }
 
+  const Table = () =>{
+    return(<table>
+    <thead>
+    {/* tr significa fila en ingles, ponemos todo el contenido en fila*/}
+      <tr> 
+        {/* th significa encabezado en ingles, es el encabezado de las columnas */}
+        {/* td es como se realiza las celdas, las columnas uno al lado del otro */}
+        <th scrope= 'col'>Title</th>
+        <th scrope= 'col'>Description</th>
+        <th scrope= 'col'>Priority</th>
+        <th scrope= 'col'>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    { tasks.map( (task2, index) => {
+      return (
+        <TaskComponent 
+        key={index}
+        task={task2} 
+        complete={complete_task} 
+        remove={delete_task}/>
+      )
+
+    })}
+        
+    </tbody>
+  </table>)
+  }
+
+  let tasks_table
+
+  if(tasks.length > 0){
+    tasks_table = <Table />
+  } else{
+    tasks_table =( 
+    <div> 
+      <h3>There are no tasks to show</h3>
+      <h3>Please, create one</h3>
+    </div>
+  )}
+
+  const loading_style ={
+      color: 'grey',
+      fontSize: '30px',
+      fontWeight: 'bold'
+  } 
   return (
     <div className='col-12'>
       <div className='card'>
@@ -61,36 +109,10 @@ const Task_listComponent = () => {
         </div>
         {/*  Card Body (content) */}
         <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', height: '400px'}}>
-          <table>
-            <thead>
-            {/* tr significa fila en ingles, ponemos todo el contenido en fila*/}
-              <tr> 
-                {/* th significa encabezado en ingles, es el encabezado de las columnas */}
-                {/* td es como se realiza las celdas, las columnas uno al lado del otro */}
-                <th scrope= 'col'>Title</th>
-                <th scrope= 'col'>Description</th>
-                <th scrope= 'col'>Priority</th>
-                <th scrope= 'col'>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-            { tasks.map( (task2, index) => {
-              return (
-                <TaskComponent 
-                key={index}
-                task={task2} 
-                complete={complete_task} 
-                remove={delete_task}/>
-              )
-
-            })}
-                
-            </tbody>
-          </table>
-
+          {loading ? (<p style={loading_style}>Loading tasks...</p>) : tasks_table}
         </div>
       </div>
-      <Task_form add={add_task}/>
+      <Task_form add={add_task} length={tasks.length}/>
       {/* <h1>The task number 1: </h1> */}
       {/* <TaskComponent task={default_task}/> */}
     </div>

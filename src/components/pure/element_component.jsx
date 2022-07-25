@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-const component = () => {
+const Component = () => {
     return(
         <div>
 
@@ -15,7 +15,9 @@ const cuadrado = {
 }
 
 const Element_component = () => {
-  
+  function detener(){
+      cuadrado.color = 'black'
+  }
   let red = 0
   let green = 125
   let blue = 200
@@ -24,8 +26,8 @@ const Element_component = () => {
     cuadrado.color = `rgb(${red},${green}, ${blue})`
   }
     return (
-    <div style={cuadrado} onMouseOver={cambio_de_color()} onMouseOut={cuadrado.color} onDoubleClick={cuadrado.color}>
-        {component}
+    <div style={cuadrado} onMouseOver={cambio_de_color} onMouseOut={detener} onDoubleClick={detener}>
+        {Component}
     </div>
   )
 }
