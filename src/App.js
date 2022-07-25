@@ -7,6 +7,7 @@ import TaskListComponent from './components/container/task_list';
 import Contact_list from './components/container/contact_list';
 import Greeting_styled from './components/pure/greetingStyled';
 import Life_cycle from './hooks/life_cycle';
+import Element_component from './components/pure/element_component';
 
 function App() {
   return (
@@ -16,10 +17,11 @@ function App() {
         {/* <Greeting name="Alberto"/> */}
         {/* <GreetingF name="juan"/> */}
         {/* <TaskListComponent /> */}
-        <Contact_list />
+        {/* <Contact_list /> */}
         {/* <Greeting_styled name="Ayrton" /> */}
         {/* <Life_cycle/> */}
-      {/* </header> */}
+        {/* </header> */}
+        <Element_component/>
     </div>
   );
 }
