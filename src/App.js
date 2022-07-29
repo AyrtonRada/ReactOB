@@ -8,6 +8,7 @@ import Contact_list from './components/container/contact_list';
 import Greeting_styled from './components/pure/greetingStyled';
 import Life_cycle from './hooks/life_cycle';
 import Element_component from './components/pure/element_component';
+import Login_form from './components/pure/forms/loginFormik';
 
 function App() {
   return (
@@ -16,12 +17,13 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Greeting name="Alberto"/> */}
         {/* <GreetingF name="juan"/> */}
-        <TaskListComponent />
+        {/* <TaskListComponent /> */}
         {/* <Contact_list /> */}
         {/* <Greeting_styled name="Ayrton" /> */}
         {/* <Life_cycle/> */}
         {/* </header> */}
         {/* <Element_component/> */}
+        <Login_form />
     </div>
   );
 }
