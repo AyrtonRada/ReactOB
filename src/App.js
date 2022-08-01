@@ -9,6 +9,7 @@ import Greeting_styled from './components/pure/greetingStyled';
 import Life_cycle from './hooks/life_cycle';
 import Element_component from './components/pure/element_component';
 import Login_form from './components/pure/forms/loginFormik';
+import Register_formik from './components/pure/forms/registerFormik';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
         {/* <Life_cycle/> */}
         {/* </header> */}
         {/* <Element_component/> */}
-        <Login_form />
+        {/* <Login_form /> */}
+        <Register_formik/>
     </div>
   );
 }
